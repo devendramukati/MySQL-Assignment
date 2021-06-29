@@ -4,7 +4,7 @@
 
 select * from Customers where CITY = 'SanJose' and rating >= 200;
 
-#12) List the names and commissions of all salespeople in London.
+#12) List the names and commissions of all salespeople in London. 
 
 select SNAME, COMM, CITY from Salespeople where CITY = 'London';
 
@@ -32,10 +32,12 @@ select sname, snum from Salespeople where exists(select rating from Customers wh
 
 select Customers.cnum, Customers.cname, Salespeople.snum, Salespeople.sname from Customers, Salespeople where Salespeople.snum + 1000 = Customers.cnum;
 
-#19) Give the salespeople’s commissions as percentages instead of decimal numbers.
+#19) Give the salespeopleâ€™s commissions as percentages instead of decimal numbers.
 
-select sname,comm*100 as commision from Salespeople;
+select sname,comm*100 as commision from Salespeople;
 
-#20) Find the largest order taken by each salesperson on each date, eliminating those Maximum orders, which are less than 3000.
+
+#20) Find the largest order taken by each salesperson on each date, eliminating those Maximum orders, which are less than 3000.
+
 
 select Salespeople.sname, Orders.odate, Orders.onum, Orders.amt from Customers, Salespeople, Orders where Customers.snum = Salespeople.snum and Customers.cnum = Orders.cnum and amt > 3000;
